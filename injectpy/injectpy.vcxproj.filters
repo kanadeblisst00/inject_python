@@ -38,6 +38,12 @@
     <ClCompile Include="inject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="tools.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="injectpy.rc">

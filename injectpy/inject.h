@@ -1,12 +1,13 @@
 #pragma once
 #include "pch.h"
-#include <filesystem>
-#include <regex>
-#include <Shlwapi.h>
+#include "tools.h"
 
 
-#pragma comment(lib, "Shlwapi.lib")
 
-std::wstring findPythonDLL(const std::wstring& path);
+extern "C" __declspec(dllexport) void SetPythonPath(wchar_t* path);
 
-DWORD WINAPI run_python(LPVOID lpParam);
+extern "C" __declspec(dllexport) void SetOpenConsole(bool isOpen);
+
+extern "C" __declspec(dllexport) void RunPythonConsole();
+
+extern "C" __declspec(dllexport) void RunPythonFile(wchar_t* pyCodePath);

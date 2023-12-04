@@ -1,4 +1,7 @@
-﻿#include "inject.h"
+﻿#include "pch.h"
+
+
+#pragma comment(lib, "Shlwapi.lib")
 
 
 BOOL APIENTRY DllMain(HMODULE hModule,
@@ -8,9 +11,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 {
 	switch (ul_reason_for_call)
 	{
-	case DLL_PROCESS_ATTACH: {
-		CreateThread(NULL, 0, run_python, hModule, 0, NULL);
-	}
+	case DLL_PROCESS_ATTACH:
 	case DLL_THREAD_ATTACH:
 	case DLL_THREAD_DETACH:
 	case DLL_PROCESS_DETACH:
