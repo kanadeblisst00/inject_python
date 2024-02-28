@@ -15,7 +15,10 @@ typedef void*(*PyImport_ImportModule_Type)(const char *);
 typedef void *(*PyObject_GetAttrString_Type)(void *, const char *);
 typedef void *(*PyUnicode_FromWideChar_Type)(const wchar_t *, size_t);
 typedef int(*PyList_Insert_Type)(void *, size_t, void *);
-
+typedef int(*PyList_Append_Type)(void*, void*);
+typedef void(*Py_DECREF_Type)(void*);
+typedef void(*PyErr_Print_Type)();
+typedef void(*PyRun_SimpleFileExFlags_Type)(FILE*,char*,int,void*);
 
 #define DECLARE_DLL_FUNCTION(module, funcName, returnType, ...) \
     typedef returnType(*funcName##_Type)(__VA_ARGS__); \
@@ -33,6 +36,10 @@ struct PyExportFuncs
 	PyObject_GetAttrString_Type PyObject_GetAttrString;
 	PyUnicode_FromWideChar_Type PyUnicode_FromWideChar;
 	PyList_Insert_Type PyList_Insert;
+	PyList_Append_Type PyList_Append;
+	Py_DECREF_Type Py_DECREF;
+	PyErr_Print_Type PyErr_Print;
+	PyRun_SimpleFileExFlags_Type PyRun_SimpleFileExFlags;
 };
 
 

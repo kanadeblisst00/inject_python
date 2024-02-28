@@ -40,6 +40,9 @@ DWORD initPython(wchar_t* DllPath, PyExportFuncs* functions, bool isOpen) {
 	functions->PyObject_GetAttrString = (PyObject_GetAttrString_Type)GetProcAddress(pyModule, "PyObject_GetAttrString");
 	functions->PyUnicode_FromWideChar = (PyUnicode_FromWideChar_Type)GetProcAddress(pyModule, "PyUnicode_FromWideChar");
 	functions->PyList_Insert = (PyList_Insert_Type)GetProcAddress(pyModule, "PyList_Insert");
-
+	functions->PyList_Append = (PyList_Append_Type)GetProcAddress(pyModule, "PyList_Append");
+	functions->Py_DECREF = (Py_DECREF_Type)GetProcAddress(pyModule, "Py_DECREF");
+	functions->PyErr_Print = (PyErr_Print_Type)GetProcAddress(pyModule, "PyErr_Print");
+	functions->PyRun_SimpleFileExFlags = (PyRun_SimpleFileExFlags_Type)GetProcAddress(pyModule, "PyRun_SimpleFileExFlags");
 	return 1;
 }

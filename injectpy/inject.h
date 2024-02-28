@@ -11,3 +11,9 @@ extern "C" __declspec(dllexport) void SetOpenConsole(bool isOpen);
 extern "C" __declspec(dllexport) void RunPythonConsole();
 
 extern "C" __declspec(dllexport) void RunPythonFile(wchar_t* pyCodePath);
+
+extern "C" __declspec(dllexport) void RunPythonFileWithPyRun(char* pyCodePath);
+
+bool AddDirToSysPath(PyExportFuncs* dllFunctions, wchar_t* subPath);
+
+void AddSitePackagesToPath(PyExportFuncs* dllFunctions);
